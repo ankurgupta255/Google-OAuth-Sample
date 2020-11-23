@@ -16,7 +16,7 @@ router.route("/google-signin").get(SocialSigninHelper.generateSignInUrl);
 
 router.route("/google-auth").get(SocialSigninHelper.validateGoogleToken);
 
-app.use("/api/auth/candidate", router);
+app.use("/api", router);
 
 app.get("/", (req, res) => {
   res.status(200).json({ error: false, msg: "Test Google Signin" });
