@@ -7,4 +7,4 @@ This is a sample Google OAuth Helper file that works everytime. Saving this for 
 3. Run command tsc
 4. Go to Google Cloud Console and add http://localhost:3000/api/google-auth as a Redirect URL for your OAuth2 Creds.
 5. Paste the Creds in .env file in Root Folder
-6. Run npm run start and go to localhost:3000/api/google-signin
+6. Run npm run start and go to http://localhost:3000/api/google-signin
