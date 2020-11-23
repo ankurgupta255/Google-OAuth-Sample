@@ -34,7 +34,7 @@ export const generateSignInUrl: RequestHandler = async (req, res, next) => {
     const url = getConnectionUrl(auth);
     res.redirect(url);
   } catch (e) {
-    res.status(401).json({ error: true, msg: String(e) });
+    return res.status(401).json({ error: true, msg: String(e) });
   }
 };
 
@@ -54,9 +54,8 @@ export const validateGoogleToken: RequestHandler = async (req, res, next) => {
       photo: resp.data.photos[0].url,
       email: resp.data.emailAddresses[0].value,
     };
-    req.user = user;
-    next();
+    return res.status(200).json({ error: false, user });
   } catch (e) {
-    res.status(401).json({ error: "Not Authorized", msg: String(e) });
+    return res.status(401).json({ error: "Not Authorized", msg: String(e) });
   }
 };
